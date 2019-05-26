@@ -89,7 +89,9 @@ public class ImageProcessing {
         File inputFile = new File(inputFilename);
 
         BufferedImage inputImage = ImageIO.read(inputFile);
-        Kernel kernel = new Kernel("contour-grey", 3, 1, new int[]{-1,-1,-1,-1,8,-1,-1,-1,-1});
+        //Kernel kernel = new Kernel("sharp", 3, 1, new int[]{0,-1,0,-1,5,-1,0,-1,0});
+        Kernel kernel = new Kernel("contour", 3, 1, new int[]{-1,-1,-1,-1,8,-1,-1,-1,-1});
+        //Kernel kernel = new Kernel("blur", 3, 9, new int[]{1,1,1,1,1,1,1,1,1});
 
         BufferedImage outputImage = imageToGrey(applyKernel(inputImage,kernel));
 
